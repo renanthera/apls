@@ -1,0 +1,36 @@
+target_error=0.1
+
+html=/tmp/out.html
+output=/dev/null
+
+monk="A"
+spec=brewmaster
+role=tank
+level=80
+race=tauren
+load_default_gear=1
+# enable_all_talents=1
+# enable_all_sets=1
+talents=CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAMGjZgZZGbzMzMGAAAAAAALLY0wMwMMYYsMzMDzyYmxysYabzmtZmxMLAAwysMtMLzsMAAgAMzgN
+
+scale_to_itemlevel=639
+set_bonus=thewarwithin_season_1_2pc=1
+set_bonus=thewarwithin_season_1_4pc=1
+
+actions.precombat=snapshot_stats
+
+input=TWW1_Monk_Brewmaster_APL_A.simc
+input=TWW1_Monk_Brewmaster_APL_B.simc
+
+tank_dummy="Fluffy_Pollow"
+level=83
+race=humanoid
+role=tank
+position=front
+
+actions.precombat=snapshot_stats
+actions=auto_attack,damage=4000000,range=30000,attack_speed=0.5,aoe_tanks=1
+actions+=/melee_nuke,damage=12000000,range=60000,attack_speed=2,cooldown=30,aoe_tanks=1
+actions+=/spell_dot,damage=150000,range=1200,tick_time=2,cooldown=30,aoe_tanks=1,dot_duration=600,bleed=1
+raid_events+=/heal,name=tank_heal,amount=350000,cooldown=0.5,duration=0,player_if=role.tank
+# actions+=/pause_action,duration=30,cooldown=30,if=time>=30
